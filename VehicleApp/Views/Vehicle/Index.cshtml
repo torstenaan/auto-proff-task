@@ -1,0 +1,65 @@
+﻿@model IEnumerable<VehicleApp.Models.Vehicle> 
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Vehicles</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-controller="Vehicle" asp-action="Create">Create new vehicle</a>
+        </div>
+    </div>
+    <br/>
+
+    @if(Model.Count() > 0) 
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Brand
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Distance
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var vehicle in Model)
+                {
+                <tr>
+                    <td width="20%">@vehicle.Brand</td>
+                    <td width="20%">@vehicle.Model</td>
+                    <td width="20%">@vehicle.Distance</td>
+                    <td width="20%">@vehicle.Price</td>
+                    <td width="20%">
+                        <div class="w-100 btn-group" role="group">
+                            <a class="btn btn-primary mx-1" 
+                               asp-controller="Vehicle" 
+                               asp-action="Update"
+                               asp-route-Id="@vehicle.Id">Update</a>
+                            <a class="btn btn-danger mx-1" 
+                               asp-controller="Vehicle" 
+                               asp-action="Delete"
+                               asp-route-Id="@vehicle.Id">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No vehicles created yet.</p>
+    }
+</div>

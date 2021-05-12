@@ -1,0 +1,65 @@
+﻿@model VehicleApp.Models.Vehicle
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Create vehicle</h2>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="form-group col">
+                    <div class="row">
+                        <div class="col-3">
+                            <label asp-for="Brand"></label>
+                        </div>
+                        <div class="col-6 p-1">
+                            <input asp-for="Brand" class="form-control" />
+                            <span asp-validation-for="Brand" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label asp-for="Model"></label>
+                        </div>
+                        <div class="col-6 p-1">
+                            <input asp-for="Model" class="form-control" />
+                            <span asp-validation-for="Model" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label asp-for="Distance"></label>
+                        </div>
+                        <div class="col-6 p-1">
+                            <input asp-for="Distance" class="form-control" />
+                            <span asp-validation-for="Distance" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label asp-for="Price"></label>
+                        </div>
+                        <div class="col-6 p-1">
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-9 text-center row">
+                            <div class="col">
+                                <input type="submit" class="btn btn-info w-75" value="Create"/>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-danger w-75" asp-controller="Vehicle" asp-action="Index">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial" />}
+}
